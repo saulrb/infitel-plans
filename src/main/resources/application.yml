@@ -1,0 +1,32 @@
+server:
+  port: 8400
+
+spring:
+  application:
+    name: PlanMS
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  config:
+    import: optional:configserver:http://localhost:1111
+  cloud:
+    config:
+      failFast: true
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/infytel_plans
+    username: saulrb
+    password: Srm1510Pa
+    driver-class-name: org.postgresql.Driver
+logging:
+  level:
+    org:
+      springframework:
+        security:
+          web:
+            FilterChainProxy: DEBUG
+      hibernate:
+        SQL: DEBUG
+        type: trace
